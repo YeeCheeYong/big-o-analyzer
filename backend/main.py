@@ -7,6 +7,12 @@ from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from openai import OpenAI
+# from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv  # Import dotenv to load .env file
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 logger=logging.getLogger('uvicorn.error')
 
@@ -30,11 +36,17 @@ class BigOPrediction(BaseModel):
     explanation: Optional[str] = None  # Explanation of the prediction
 
 # Configure the OpenAI client
+OPENAI_KEY = os.getenv("OPENAI_KEY")
+print(OPENAI_KEY)
+if not OPENAI_KEY:
+    raise ValueError("OPENAI_KEY is not set in the environment variables.")
+
 client = OpenAI(
-    api_key="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"
+    api_key=OPENAI_KEY
 )
 # client = OpenAI(
-#     api_key="sk-ijklmnopqrstuvwxijklmnopqrstuvwxijklmnop")
+#     api_key="sk-ijklmnopqrstuvwxijklmnopqrstuvwxijklmnop"
+# )
 
 @app.post('/analyze', response_model=BigOPrediction)
 async def analyze_code_snippet(snippet: CodeSnippet):

@@ -2,3 +2,5 @@ fastapi
 uvicorn
 pydantic
 openai
+pydantic-settings
+python-dotenv
