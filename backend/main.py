@@ -44,9 +44,7 @@ if not OPENAI_KEY:
 client = OpenAI(
     api_key=OPENAI_KEY
 )
-# client = OpenAI(
-#     api_key="sk-ijklmnopqrstuvwxijklmnopqrstuvwxijklmnop"
-# )
+
 
 @app.post('/analyze', response_model=BigOPrediction)
 async def analyze_code_snippet(snippet: CodeSnippet):
