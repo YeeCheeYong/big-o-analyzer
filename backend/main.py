@@ -37,7 +37,7 @@ class BigOPrediction(BaseModel):
 
 # Configure the OpenAI client
 OPENAI_KEY = os.getenv("OPENAI_KEY")
-print(OPENAI_KEY)
+
 if not OPENAI_KEY:
     raise ValueError("OPENAI_KEY is not set in the environment variables.")
 
