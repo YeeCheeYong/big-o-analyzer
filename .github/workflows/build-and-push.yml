@@ -48,10 +48,10 @@ jobs:
         run: |
           # Build and push all services defined in docker-compose.yaml
           docker compose build
-#          docker tag big-o-frontend $REGISTRY/big-o-frontend:$IMAGE_TAG
-#          docker tag big-o-backend $REGISTRY/big-o-backend:$IMAGE_TAG
-#          docker tag big-o-frontend $REGISTRY/big-o-frontend:latest
-#          docker tag big-o-backend $REGISTRY/big-o-backend:latest
+          docker tag big-o-frontend $REGISTRY/big-o-frontend:$IMAGE_TAG
+          docker tag big-o-backend $REGISTRY/big-o-backend:$IMAGE_TAG
+          docker tag big-o-frontend $REGISTRY/big-o-frontend:latest
+          docker tag big-o-backend $REGISTRY/big-o-backend:latest
           docker compose push
 
 
