@@ -13,8 +13,19 @@ jobs:
       contents: read
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          envkey_IMAGE_VERSION: ${{ vars.IMAGE_VERSION }}
+          file_name: .env
+          fail_on_empty: false
+          sort_keys: false
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
@@ -28,19 +39,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-
-#      - name: Build & Upload image to ECR
-#        uses: appleboy/docker-ecr-action@master
-#        with:
-#          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          registry: ${{ secrets.REGISTRY }}
-#          repo: ${{ env.ECR_REPOSITORY }}
-#          region: ${{ env.AWS_REGION }}
-#          tags: latest,${{ github.run_number }}
-#          daemon_off: false
-#          dockerfile: ./Dockerfile
-#          context: ./
 
       - name: Build and Push Images with Docker Compose
         env:
