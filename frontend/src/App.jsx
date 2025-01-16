@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import CodeAnalysis from './components/CodeAnalysis.jsx'; // Correctly reference the CodeAnalysis component
+import structuredClone from '@ungap/structured-clone';
 
+// ... rest of your code
 const App = () => {
   return (
     <div className="App">

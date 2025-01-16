@@ -1128,3 +1128,10 @@ The Big-O notation for the provided code snippet is **O(1)**, indicating that it
 2025-01-12 06:27:06,394 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.error: 127.0.0.1:51738 - HTTP connection lost
 2025-01-12 06:27:51,818 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.error: 127.0.0.1:53094 - HTTP connection lost
 2025-01-12 06:27:51,819 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.error: 127.0.0.1:51748 - HTTP connection lost
+2025-01-14 07:12:22,812 [MainProcess: 92389] [MainThread: 140504863053632] [INFO] uvicorn.error: Shutting down
+2025-01-14 07:12:22,939 [MainProcess: 92389] [MainThread: 140504863053632] [INFO] uvicorn.error: Waiting for application shutdown.
+2025-01-14 07:12:22,947 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.asgi: ASGI [1] Receive {'type': 'lifespan.shutdown'}
+2025-01-14 07:12:22,950 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.asgi: ASGI [1] Send {'type': 'lifespan.shutdown.complete'}
+2025-01-14 07:12:22,952 [MainProcess: 92389] [MainThread: 140504863053632] [TRACE] uvicorn.asgi: ASGI [1] Completed
+2025-01-14 07:12:22,954 [MainProcess: 92389] [MainThread: 140504863053632] [INFO] uvicorn.error: Application shutdown complete.
+2025-01-14 07:12:22,955 [MainProcess: 92389] [MainThread: 140504863053632] [INFO] uvicorn.error: Finished server process [92389]
