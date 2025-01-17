@@ -49,8 +49,10 @@ jobs:
           # Build and push all services defined in docker-compose.yaml
           docker build -t $REGISTRY/$REPO:backend-$IMAGE_TAG -f ./backend/Dockerfile ./backend
           docker push $REGISTRY/$REPO:backend-$IMAGE_TAG
-          docker build -t $REGISTRY/$REPO:frontend-latest -f ./frontend/Dockerfile ./frontend
+
+          docker build -t $REGISTRY/$REPO:frontend-$IMAGE_TAG -f ./frontend/Dockerfile ./frontend
           docker push $REGISTRY/$REPO:frontend-$IMAGE_TAG
+
 #          docker compose commands below return access token has insufficient scopes error
 #          docker compose build
 #          docker compose push
