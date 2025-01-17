@@ -47,10 +47,10 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build and push all services defined in docker-compose.yaml
-          docker build -t $REGISTRY/$REPO/big-o-backend:$IMAGE_TAG -f ./backend/Dockerfile ./backend
-          docker push $REGISTRY/$REPO/big-o-backend:$IMAGE_TAG
-          docker build -t $REGISTRY/$REPO/big-o-frontend:latest -f ./frontend/Dockerfile ./frontend
-          docker push $REGISTRY/$REPO/big-o-frontend:$IMAGE_TAG
+          docker build -t $REGISTRY/$REPO:backend-$IMAGE_TAG -f ./backend/Dockerfile ./backend
+          docker push $REGISTRY/$REPO:backend-$IMAGE_TAG
+          docker build -t $REGISTRY/$REPO:frontend-latest -f ./frontend/Dockerfile ./frontend
+          docker push $REGISTRY/$REPO:frontend-$IMAGE_TAG
 #          docker compose commands below return access token has insufficient scopes error
 #          docker compose build
 #          docker compose push
