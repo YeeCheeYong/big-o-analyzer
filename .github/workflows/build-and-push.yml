@@ -43,14 +43,14 @@ jobs:
       - name: Build and Push Images with Docker Compose
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-#          REPO: big-o
+          REPO: big-o
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build and push all services defined in docker-compose.yaml
-          docker build -t $REGISTRY/big-o-backend:$IMAGE_TAG -f ./backend/Dockerfile ./backend
-          docker push $REGISTRY/big-o-backend:$IMAGE_TAG
-          docker build -t $REGISTRY/big-o-frontend:latest -f ./frontend/Dockerfile ./frontend
-          docker push $REGISTRY/big-o:latest
+          docker build -t $REGISTRY/$REPO:$IMAGE_TAG -f ./backend/Dockerfile ./backend
+          docker push $REGISTRY/$REPO:$IMAGE_TAG
+          docker build -t $REGISTRY/$REPO:latest -f ./frontend/Dockerfile ./frontend
+          docker push $REGISTRY/$REPO:latest
 #          docker compose build
 #          docker compose push
 #          docker tag big-o-frontend $REGISTRY/big-o-frontend:$IMAGE_TAG
